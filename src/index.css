@@ -6,18 +6,19 @@
   --font-kids: "Fredoka", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
   
-  --color-turquoise-50: #f0fdfa;
-  --color-turquoise-100: #ccfbf1;
-  --color-turquoise-400: #2dd4bf;
-  --color-turquoise-500: #14b8a6;
-  --color-turquoise-600: #0d9488;
-  --color-turquoise-700: #0f766e;
-  --color-turquoise-900: #115e59;
+  --color-turquoise-50: #F1F9F9;
+  --color-turquoise-100: #E2F2F2;
+  --color-turquoise-400: #00B1B1;
+  --color-turquoise-500: #009393;
+  --color-turquoise-600: #007A7A;
+  --color-turquoise-700: #005F5F;
+  --color-turquoise-900: #003F3F;
   
-  --color-clay-100: #ffedd5;
-  --color-clay-500: #f97316;
-  --color-clay-600: #ea580c;
-  --color-clay-800: #9a3412;
+  --color-clay-100: #E9EDC9;
+  --color-clay-200: #CCD5AE;
+  --color-clay-500: #D4A373;
+  --color-clay-600: #B18659;
+  --color-clay-800: #5A5A40;
 }
 
 @keyframes kidsWiggle {
@@ -42,7 +43,7 @@
 .wavey-underline {
   text-decoration: underline;
   text-decoration-style: wavy;
-  text-decoration-color: #ea580c;
+  text-decoration-color: #E07A5F;
   text-decoration-thickness: 3px;
   text-underline-offset: 4px;
   cursor: pointer;
@@ -51,7 +52,7 @@
 .wavey-underline-foreign {
   text-decoration: underline;
   text-decoration-style: wavy;
-  text-decoration-color: #0ea5e9;
+  text-decoration-color: #009393;
   text-decoration-thickness: 3px;
   text-underline-offset: 4px;
   cursor: pointer;
@@ -60,7 +61,7 @@
 .wavey-underline-broken {
   text-decoration: underline;
   text-decoration-style: wavy;
-  text-decoration-color: #10b981;
+  text-decoration-color: #B18659;
   text-decoration-thickness: 3px;
   text-underline-offset: 4px;
   cursor: pointer;
@@ -69,7 +70,7 @@
 .wavey-underline-keyboard {
   text-decoration: underline;
   text-decoration-style: wavy;
-  text-decoration-color: #f59e0b;
+  text-decoration-color: #D4A373;
   text-decoration-thickness: 3px;
   text-underline-offset: 4px;
   cursor: pointer;
@@ -77,8 +78,8 @@
 
 /* Warm parchment background to elicit Turkish culture (modernised clay and tiles) */
 body {
-  background-color: #fafaf9;
-  color: #1c1917;
+  background-color: #F7F3EF;
+  color: #2D241E;
   font-family: var(--font-sans);
 }
 

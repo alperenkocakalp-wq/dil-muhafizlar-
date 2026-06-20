@@ -246,14 +246,53 @@ Süper katı JSON formatında şu şema ile yanıt ver:
 
 Yanıtında sadece saf bir JSON dizesi döndür. Markdown 'json codeblock' sarmalayıcısı kullanma, doğrudan JSON nesnesi olsun.`;
 
-          const response = await client.models.generateContent({
-            model: "gemini-3.5-flash",
-            contents: prompt,
-            config: {
-              responseMimeType: "application/json",
-              temperature: 0.3
+          const candidateModels = [
+            "gemini-2.5-flash",
+            "gemini-2.0-flash",
+            "gemini-1.5-flash",
+            "gemini-3.5-flash",
+            "gemini-flash-latest"
+          ];
+          let response = null;
+          let activeModel = "";
+          let lastError = null;
+
+          for (const modelName of candidateModels) {
+            for (let attempt = 1; attempt <= 2; attempt++) {
+              try {
+                console.log(`Attempting Gemini correction with model: ${modelName} (attempt ${attempt}/2)...`);
+                response = await client.models.generateContent({
+                  model: modelName,
+                  contents: prompt,
+                  config: {
+                    responseMimeType: "application/json",
+                    temperature: 0.3
+                  }
+                });
+                activeModel = modelName;
+                console.log(`Successfully completed generation using model: ${modelName}`);
+                break;
+              } catch (err: any) {
+                lastError = err;
+                console.warn(`Model ${modelName} (attempt ${attempt}) failed. Error:`, err.message || err);
+                
+                const statusCode = err.status || err.statusCode || (err.error && err.error.code);
+                if (statusCode === 503 || statusCode === 429) {
+                  console.log(`Transient error ${statusCode} detected. Waiting 1000ms before retrying/switching...`);
+                  await new Promise(resolve => setTimeout(resolve, 1000));
+                } else {
+                  break;
+                }
+              }
             }
-          });
+            if (response) {
+              break;
+            }
+          }
+
+          if (!response) {
+            throw lastError || new Error("All candidate Gemini models failed.");
+          }
 
           const responseText = response.text || "{}";
           let data;
@@ -286,7 +325,7 @@ Yanıtında sadece saf bir JSON dizesi döndür. Markdown 'json codeblock' sarma
 
           return res.json({
             success: true,
-            engine: "Gemini AI Engine",
+            engine: `Gemini AI Engine (${activeModel})`,
             originalText: text,
             correctedText: data.correctedText || text,
             corrections: data.corrections || []
