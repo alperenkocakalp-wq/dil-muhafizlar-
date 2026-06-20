@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fredoka:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-kids: "Fredoka", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-turquoise-50: #f0fdfa;
+  --color-turquoise-100: #ccfbf1;
+  --color-turquoise-400: #2dd4bf;
+  --color-turquoise-500: #14b8a6;
+  --color-turquoise-600: #0d9488;
+  --color-turquoise-700: #0f766e;
+  --color-turquoise-900: #115e59;
+  
+  --color-clay-100: #ffedd5;
+  --color-clay-500: #f97316;
+  --color-clay-600: #ea580c;
+  --color-clay-800: #9a3412;
+}
+
+@keyframes kidsWiggle {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+}
+
+@keyframes pulseHighlight {
+  0%, 100% { border-color: rgba(234, 88, 12, 0.4); }
+  50% { border-color: rgba(234, 88, 12, 1); }
+}
+
+.animate-kids-wiggle {
+  animation: kidsWiggle 2s ease-in-out infinite;
+}
+
+.animate-pulse-highlight {
+  animation: pulseHighlight 1.5s infinite;
+}
+
+/* Custom wavey underline for misspelled words */
+.wavey-underline {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #ea580c;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.wavey-underline-foreign {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #0ea5e9;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.wavey-underline-broken {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #10b981;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.wavey-underline-keyboard {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #f59e0b;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+/* Warm parchment background to elicit Turkish culture (modernised clay and tiles) */
+body {
+  background-color: #fafaf9;
+  color: #1c1917;
+  font-family: var(--font-sans);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f4;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d6d3d1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a29e;
+}

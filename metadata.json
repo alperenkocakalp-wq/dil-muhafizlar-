@@ -1,0 +1,6 @@
+{
+  "name": "Türkçe Kelime Muhafızı",
+  "description": "İlkokul ve ortaokul öğrencilerine yönelik, dezenformasyona uğramış Türkçe kelimeleri eğlenceli şekilde tespit eden ve düzelten oyunlaştırılmış dil koruma platformu.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
